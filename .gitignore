@@ -348,3 +348,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/Task_7/Task_7.sln
+/Task_7/Task_7.vcxproj
+/Task_7/Task_7.vcxproj.filters
+/Task_8/Task_8.sln
+/Task_8/Task_8.vcxproj
+/Task_8/Task_8.vcxproj.filters
