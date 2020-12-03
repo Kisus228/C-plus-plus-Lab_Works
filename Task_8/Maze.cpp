@@ -5,10 +5,7 @@
 #include <string>
 
 
-
 #include "MCell.h"
-
-using namespace std;
 
 Maze::Maze(int n, int m)
 {
@@ -39,11 +36,11 @@ bool Maze::makeConnection(int i1, int j1, int i2, int j2)
 	}
 	if (i1 != i2)
 	{
-		m_field[min(i1, i2) * rowsAmount + j1].m_down = true;
+		m_field[std::min(i1, i2) * rowsAmount + j1].m_down = true;
 	}
 	else
 	{
-		m_field[i1 * rowsAmount + min(j1, j2)].m_right = true;
+		m_field[i1 * rowsAmount + std::min(j1, j2)].m_right = true;
 	}
 	return true;
 }
@@ -56,11 +53,11 @@ bool Maze::removeConnection(int i1, int j1, int i2, int j2)
 	}
 	if (i1 != i2)
 	{
-		m_field[min(i1, i2) * rowsAmount + j1].m_down = false;
+		m_field[std::min(i1, i2) * rowsAmount + j1].m_down = false;
 	}
 	else
 	{
-		m_field[i1 * rowsAmount + min(j1, j2)].m_right = false;
+		m_field[i1 * rowsAmount + std::min(j1, j2)].m_right = false;
 	}
 	return true;
 }
@@ -71,12 +68,11 @@ void Maze::printMaze()
 	{
 		for (auto j = 0; j < columnsAmount; j++)
 		{
-			bool up, down, right, left;
-			right = cell(i, j).right();
-			down = cell(i, j).down();
-			up = i != 0 && cell(i - 1, j).down();
-			left = j != 0 && cell(i, j - 1).right();
-			if(up + down + right + left == 0)
+			const auto up = i != 0 && cell(i - 1, j).down();
+			const auto down = cell(i, j).down();
+			const auto right = cell(i, j).right();
+			const auto left = j != 0 && cell(i, j - 1).right();
+			if (up + down + right + left == 0)
 			{
 				std::cout << '0';
 				continue;
@@ -126,7 +122,7 @@ void Maze::printMaze()
 			else
 				std::cout << static_cast<char>(196);
 		}
-		std::cout << endl;
+		std::cout << std::endl;
 	}
 }
 

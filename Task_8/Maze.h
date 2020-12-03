@@ -16,4 +16,3 @@ private:
 	int columnsAmount;
 	~Maze();
 };
-
