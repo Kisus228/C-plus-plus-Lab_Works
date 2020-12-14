@@ -58,11 +58,11 @@ int main()
 	char* treeInStr = new char[(size + 1) * size];
 	for (auto index = 0; index < (size + 1) * size; index++)
 	{
-		if ((index + 1) % 6 == 0)
+		if ((index + 1) % (size + 1) == 0)
 			treeInStr[index] = '\n';
 		else
 		{
-			treeInStr[index] = 'x';
+			treeInStr[index] = ' ';
 		}
 	}
 	printTree(tree, treeInStr, size);
