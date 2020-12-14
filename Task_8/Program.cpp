@@ -38,9 +38,8 @@ void printTree(MTreeNode* parent, char* result, int size)
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
 	int size;
-	std::cout << "Введите размер квадратного лабиринта:" << std::flush;
+	std::cout << "Enter the size of the square maze:" << std::flush;
 	std::cin >> size;
 	auto* maze = new Maze(size, size);
 	for (auto index = 0; index < size - 2; index++)
